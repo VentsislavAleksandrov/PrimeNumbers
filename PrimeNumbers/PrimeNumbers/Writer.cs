@@ -51,7 +51,7 @@ namespace PrimeNumbers
                     {
                         if (matrix[row, column] == 0)
                         {
-                            table += "<td></td>";
+                            table += "<td> </td>";
                         }
                         else
                         {
