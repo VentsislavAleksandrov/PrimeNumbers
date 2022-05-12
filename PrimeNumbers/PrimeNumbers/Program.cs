@@ -17,7 +17,9 @@ namespace PrimeNumbers
 
             dataProccesor.GetPrimeNumbers();
             dataProccesor.FillMatrix();
-            writer.Write(matrix, mLength);
+
+            writer.WriteToFile(matrix);
+            writer.WriteToConsole(matrix, mLength);
 		}
     }
 }

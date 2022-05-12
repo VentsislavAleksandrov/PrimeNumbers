@@ -48,8 +48,6 @@ namespace PrimeNumbersTests
             Assert.AreEqual(matrix[2,0], 3);
             Assert.AreEqual(matrix[2,1], 6);
             Assert.AreEqual(matrix[2,2], 9);
-           
-
         }
     }
 }
