@@ -8,10 +8,11 @@ namespace PrimeNumbers
         static void Main(string[] args)
         {
             var n = int.Parse(Console.ReadLine());
+			var mLength = n + 1;
             int p;
             int k;
 			var counter = 1;
-            var matrix = new int[n + 1, n + 1];
+            var matrix = new int[mLength, mLength];
 			var primeNumbersList = new List<int>();
 			primeNumbersList.Add(0);
 
@@ -33,7 +34,7 @@ namespace PrimeNumbers
 					primeNumbersList.Add(i);
 					counter++;
 				}
-                if (counter == n + 1)
+                if (counter == mLength)
                 {
 					break;
                 }
@@ -43,6 +44,14 @@ namespace PrimeNumbers
             {
 				matrix[0, i] = primeNumbersList[i];
 				matrix[i, 0] = primeNumbersList[i];
+            }
+
+            for (int i = 1; i < mLength; i++)
+            {
+                for (int j = 1; j < mLength; j++)
+                {
+					matrix[i, j] = matrix[0, j] * matrix[i, 0];
+                }
             }
 			;
 		}
