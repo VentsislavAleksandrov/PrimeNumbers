@@ -17,10 +17,12 @@ namespace PrimeNumbers
             return num;
         }
 
+        bool IsParsed;
+        int n;
         private int ReadNumber()
         {
             Console.Write(ConsoleConstants.Input);
-            var IsParsed = int.TryParse(Console.ReadLine(), out int n);
+            IsParsed = int.TryParse(Console.ReadLine(), out n);
 
             if (IsParsed && n >= 1)
             {
@@ -28,25 +30,10 @@ namespace PrimeNumbers
             }
             else
             {
-                IsParsed = false;
+                ReadNumber();               
             }
 
-            while (!IsParsed)
-            {
-                Console.Write(ConsoleConstants.WrongInput);
-                IsParsed = int.TryParse(Console.ReadLine(), out int m);
-
-                if (IsParsed && m >= 1)
-                {
-                    return m;
-                }
-                else
-                {
-                    IsParsed = false;
-                }
-            }
-
-            return 0;
+            return n;
         }
     }
 }
