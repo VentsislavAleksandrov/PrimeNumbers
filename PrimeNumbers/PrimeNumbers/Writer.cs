@@ -56,6 +56,7 @@ namespace PrimeNumbers
                         table.Append("<td></td>");
                     }
                 }
+
                 table.Append("</tr>");
             }
             table.Append("</tbody>");

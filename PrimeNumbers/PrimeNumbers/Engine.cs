@@ -1,5 +1,4 @@
 ﻿using PrimeNumbers.Contracts;
-using System;
 using System.Collections.Generic;
 
 namespace PrimeNumbers
