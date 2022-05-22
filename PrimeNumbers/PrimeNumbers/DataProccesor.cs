@@ -1,18 +1,19 @@
-﻿using System;
+﻿using PrimeNumbers.Contracts;
+using System;
 using System.Collections.Generic;
 
 namespace PrimeNumbers
 {
-    public class DataProccesor
+    public class DataProccesor: IDataProccesor
     {
         private int k;
         private int p;
 		private int counter = 1;
 		private int mLength;
         private readonly int[,] matrix;
-        private List<int> primeNumbers;
+        private IList<int> primeNumbers;
 
-        public DataProccesor(int[,] matrix, List<int> primeNumbers, int mLength)
+        public DataProccesor(int[,] matrix, IList<int> primeNumbers, int mLength)
         {
             this.matrix = matrix;
             this.primeNumbers = primeNumbers;
@@ -22,6 +23,16 @@ namespace PrimeNumbers
         public void GetPrimeNumbers()
         {
 			primeNumbers.Add(0);
+			GeneratePrimeNumbers(primeNumbers);
+        }
+
+		public void FillMatrix()
+        {
+			MatrixFill();
+        }
+
+		private void GeneratePrimeNumbers(IList<int> primeNumbers)
+        {
 			for (int i = 2; i <= Math.Sqrt(int.MaxValue); i++)
 			{
 				k = 2;
@@ -45,9 +56,9 @@ namespace PrimeNumbers
 					break;
 				}
 			}
-        }
+		}
 
-		public void FillMatrix()
+		private void MatrixFill()
         {
 			for (int i = 1; i <= mLength - 1; i++)
 			{
@@ -62,6 +73,6 @@ namespace PrimeNumbers
 					matrix[i, j] = matrix[0, j] * matrix[i, 0];
 				}
 			}
-        }
+		}
     }
 }
